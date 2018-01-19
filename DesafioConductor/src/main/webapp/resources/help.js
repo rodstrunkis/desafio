@@ -41,19 +41,6 @@ angular.module("HelpApp", [])
                 self.cliente = cliente;
             };
 
-//            self.concluir = function (cl) {
-//                self.cl = cl;
-//
-//                $http({
-//                    method: 'PUT',
-//                    url: urlBase + 'cliente/' + self.cl.id + '/'
-//                }).then(function successCallback(response) {
-//                    self.atualizarTabela();
-//                }, function errorCallback(response) {
-//                    self.ocorreuErro();
-//                });
-//            };
-
             self.ocorreuErro = function () {
                 alert("Ocorreu um erro inesperado!");
             };
@@ -69,19 +56,6 @@ angular.module("HelpApp", [])
                     self.ocorreuErro();
                 });
             };
-            self.pesquisa = function () {
-                var metodo = 'POST';
-               
-                $http({
-                    method: 'GET',
-                    url: urlBase + 'cliente/' + /*self.cl.id*/2 + '/'});
-            };
-//                }).then(function successCallback(response) {
-//                    self.atualizarTabela();
-//                }, function errorCallback(response) {
-//                    self.ocorreuErro();
-//                });
-//            };
 
             self.activate = function () {
                 self.atualizarTabela();
