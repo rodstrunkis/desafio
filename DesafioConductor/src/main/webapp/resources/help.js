@@ -8,6 +8,7 @@ angular.module("HelpApp", [])
         .value('urlBase', 'http://localhost:8080/DesafioConductor/rest/')
         .controller("ClienteController", function ($http, urlBase)
 {
+    var app = angular.module('guerraTI', ['angularUtils.directives.dirPagination']);
     var self = this;
 
     self.clientes = [];
