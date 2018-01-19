@@ -9,26 +9,26 @@ angular.module("HelpApp", [])
         .controller("ClienteController", function ($http, urlBase) {
             var self = this;
 
-            self.ListaClientes = [];
-            self.cl = undefined;
+            self.clientes = [];
+            self.cliente = undefined;
 
             //cliente deixa de ser indefino para se tornar uma lista vazia.
             self.novo = function () {
-                self.cl = {};
+                self.cliente = {};
             };
 
             //Se o cliente a ser salvo for novo, ou seja, se não tiver um ID, entra na condição POST.
             //Caso ja tenha um ID, ele já é existente no BD e apenas será atualizado, então será feito um PUT.
             self.salvar = function () {
                 var metodo = 'POST';
-//                if (self.cl.id) {
-//                    metodo = 'PUT';
-//                }
+                if (self.cliente.id) {
+                    metodo = 'PUT';
+                }
 
                 $http({
                     method: metodo,
                     url: urlBase + 'cliente/',
-                    data: self.cl
+                    data: self.cliente
                 }).then(function successCallback(response) {
                     self.atualizarTabela();
                 }, function errorCallback(response) {
@@ -37,8 +37,8 @@ angular.module("HelpApp", [])
             };
 
             //cliente deixa de ser indefino, torna-se um cliente existente para ser alterado. Depois exige o botão salvar.
-            self.alterar = function (cl) {
-                self.cl = cl;
+            self.alterar = function (cliente) {
+                self.cliente = cliente;
             };
 
 //            self.concluir = function (cl) {
@@ -63,8 +63,8 @@ angular.module("HelpApp", [])
                     method: 'GET',
                     url: urlBase + 'cliente/'
                 }).then(function successCallback(response) {
-                    self.listaClientes = response.data;
-                    self.cl = undefined;
+                    self.clientes = response.data;
+                    self.cliente = undefined;
                 }, function errorCallback(response) {
                     self.ocorreuErro();
                 });

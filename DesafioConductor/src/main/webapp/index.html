@@ -10,34 +10,31 @@
 
             <!-- Se não houver cliente cadastrados no BD, esta div será exibida para criar um novo cliente. -->
             <div style="border: 1px solid black;"
-                 ng-show="controller.cl">
+                 ng-show="controller.cliente">
                 
-                <label for="id">ID: </label>
-                <input type="number" id="id" ng-model="controller.cl.id" disabled><br>
+                <label for="ClienteId">ID: </label>
+                <input type="number" id="clienteId" ng-model="controller.cliente.id" disabled><br>
 
                 <label for="nome">Nome: </label>
-                <input type="text" id="nome" ng-model="controller.cl.nome"><br>
+                <input type="text" id="nome" ng-model="controller.cliente.nome"><br>
 
                 <label for="cpf">CPF: </label>
-                <input type="text" id="cpf" ng-model="controller.cl.cpf"><br>
+                <input type="text" id="cpf" ng-model="controller.cliente.cpf"><br>
                 
                 <label for="email">email: </label>
-                <input type="text" id="email" ng-model="controller.cl.email"><br>
+                <input type="text" id="email" ng-model="controller.cliente.email"><br>
                 
                 <label for="telefone">telefone: </label>
-                <input type="text" id="telefone" ng-model="controller.cl.telefone"><br>
+                <input type="text" id="telefone" ng-model="controller.cliente.telefone"><br>
 
                 <button type="button" data-ng-click="controller.salvar()">Salvar</button>
-                <button type="button" data-ng-click="controller.cl = undefined">Cancelar</button>
+                <button type="button" data-ng-click="controller.cliente = undefined">Cancelar</button>
             </div>
 
             <!-- Se houver cliente cadastrado no BD, esta div será exibida com os cliente cadastrados. -->
             <div style="border: 1px solid black;"
-                 ng-show="!controller.cl">
+                 ng-show="!controller.cliente">
                 <button type="button" data-ng-click="controller.novo()">Novo Cliente</button><br>
-                <label for="id">ID: </label>
-                <input type="number" id="idBusca" ng-model="criteria">
-                <button type="button" data-ng-click="controller.pesquisa()">Pesquisa Cliente</button><br>
                 <br>
                 <table border="1">
                     <tr>
@@ -47,20 +44,20 @@
                         <th>e-mail</th>
                         <th>Telefone</th>
                     </tr>
-                    <tr data-ng-repeat="cl in controller.cl">
-                        <td>{{cl.id}}</td>
-                        <td>{{cl.nome}}</td>
-                        <td>{{cl.cpf}}</td>
-                        <td>{{cl.email}}</td>
-                        <td>{{cl.telefone}}</td>
+                    <tr data-ng-repeat="cliente in controller.clientes">
+                        <td>{{cliente.id}}</td>
+                        <td>{{cliente.nome}}</td>
+                        <td>{{cliente.cpf}}</td>
+                        <td>{{cliente.email}}</td>
+                        <td>{{cliente.telefone}}</td>
                         <td>
-                            <button type="button" data-ng-click="controller.alterar(cl)">Alterar</button>
+                            <button type="button" data-ng-click="controller.alterar(cliente)">Alterar</button>
                         </td>
                     </tr>
                 </table>
-            </div>
+            </div>           
         </div>
-
+    </div>
     <script src="resources/angular.js"></script>
     <script src="resources/help.js"></script>
 </body>
