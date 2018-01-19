@@ -60,7 +60,7 @@ public class ClienteController {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("{id}/")
+    @Path("/{id}")
     public Cliente GetCliente(@PathParam("id") long id)
     {
         try {

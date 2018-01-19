@@ -69,9 +69,22 @@ angular.module("HelpApp", [])
                     self.ocorreuErro();
                 });
             };
-
-//            self.activate = function () {
-//                self.atualizarTabela();
+            self.pesquisa = function () {
+                var metodo = 'POST';
+               
+                $http({
+                    method: 'GET',
+                    url: urlBase + 'cliente/' + /*self.cl.id*/2 + '/'});
+            };
+//                }).then(function successCallback(response) {
+//                    self.atualizarTabela();
+//                }, function errorCallback(response) {
+//                    self.ocorreuErro();
+//                });
 //            };
-//            self.activate();
+
+            self.activate = function () {
+                self.atualizarTabela();
+            };
+            self.activate();
 });

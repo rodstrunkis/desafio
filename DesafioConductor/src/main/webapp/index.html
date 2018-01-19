@@ -35,6 +35,9 @@
             <div style="border: 1px solid black;"
                  ng-show="!controller.cl">
                 <button type="button" data-ng-click="controller.novo()">Novo Cliente</button><br>
+                <label for="id">ID: </label>
+                <input type="number" id="idBusca" ng-model="criteria">
+                <button type="button" data-ng-click="controller.pesquisa()">Pesquisa Cliente</button><br>
                 <br>
                 <table border="1">
                     <tr>
