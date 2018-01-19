@@ -50,6 +50,7 @@
                         <th>e-mail</th>
                         <th>Telefone</th>
                     </tr>
+                    <!--<tr dir-paginate="cliente in controller.clientes | filter:procurar | itemsPerPage:5">-->
                     <tr data-ng-repeat="cliente in controller.clientes |filter:procurar">
                         <td>{{cliente.id}}</td>
                         <td>{{cliente.nome}}</td>
