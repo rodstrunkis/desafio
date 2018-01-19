@@ -6,7 +6,8 @@
 
 angular.module("HelpApp", [])
         .value('urlBase', 'http://localhost:8080/DesafioConductor/rest/')
-        .controller("ClienteController", function ($http, urlBase) {
+        .controller("ClienteController", function ($http, urlBase)
+{
             var self = this;
 
             self.clientes = [];

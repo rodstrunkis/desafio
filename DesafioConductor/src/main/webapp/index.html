@@ -35,6 +35,12 @@
             <div style="border: 1px solid black;"
                  ng-show="!controller.cliente">
                 <button type="button" data-ng-click="controller.novo()">Novo Cliente</button><br>
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label>Procurar</label>
+                        <input type="text" ng-model="procurar" class="form-control" placeholder="Procurar...">
+                    </div>
+                </form>
                 <br>
                 <table border="1">
                     <tr>
@@ -44,7 +50,7 @@
                         <th>e-mail</th>
                         <th>Telefone</th>
                     </tr>
-                    <tr data-ng-repeat="cliente in controller.clientes">
+                    <tr data-ng-repeat="cliente in controller.clientes |filter:procurar">
                         <td>{{cliente.id}}</td>
                         <td>{{cliente.nome}}</td>
                         <td>{{cliente.cpf}}</td>
